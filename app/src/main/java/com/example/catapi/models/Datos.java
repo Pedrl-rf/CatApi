@@ -5,7 +5,7 @@ package com.example.catapi.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Razas {
+public class Datos {
 
     @SerializedName("weight")
     @Expose
@@ -126,7 +126,7 @@ public class Razas {
      * No args constructor for use in serialization
      * 
      */
-    public Razas() {
+    public Datos() {
     }
 
     /**
@@ -170,7 +170,7 @@ public class Razas {
      * @param dogFriendly
      * @param referenceImageId
      */
-    public Razas(Weight weight, String id, String name, String cfaUrl, String vetstreetUrl, String vcahospitalsUrl, String temperament, String origin, String countryCodes, String countryCode, String description, String lifeSpan, int indoor, int lap, String altNames, int adaptability, int affectionLevel, int childFriendly, int dogFriendly, int energyLevel, int grooming, int healthIssues, int intelligence, int sheddingLevel, int socialNeeds, int strangerFriendly, int vocalisation, int experimental, int hairless, int natural, int rare, int rex, int suppressedTail, int shortLegs, String wikipediaUrl, int hypoallergenic, String referenceImageId, Image image) {
+    public Datos(Weight weight, String id, String name, String cfaUrl, String vetstreetUrl, String vcahospitalsUrl, String temperament, String origin, String countryCodes, String countryCode, String description, String lifeSpan, int indoor, int lap, String altNames, int adaptability, int affectionLevel, int childFriendly, int dogFriendly, int energyLevel, int grooming, int healthIssues, int intelligence, int sheddingLevel, int socialNeeds, int strangerFriendly, int vocalisation, int experimental, int hairless, int natural, int rare, int rex, int suppressedTail, int shortLegs, String wikipediaUrl, int hypoallergenic, String referenceImageId, Image image) {
         super();
         this.weight = weight;
         this.id = id;
