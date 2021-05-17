@@ -2,10 +2,13 @@
 package com.example.catapi.models;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Weight {
+public class Weight implements Parcelable {
 
     @SerializedName("imperial")
     @Expose
@@ -32,6 +35,23 @@ public class Weight {
         this.metric = metric;
     }
 
+    protected Weight(Parcel in) {
+        imperial = in.readString();
+        metric = in.readString();
+    }
+
+    public static final Creator<Weight> CREATOR = new Creator<Weight>() {
+        @Override
+        public Weight createFromParcel(Parcel in) {
+            return new Weight(in);
+        }
+
+        @Override
+        public Weight[] newArray(int size) {
+            return new Weight[size];
+        }
+    };
+
     public String getImperial() {
         return imperial;
     }
@@ -48,4 +68,14 @@ public class Weight {
         this.metric = metric;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(imperial);
+        dest.writeString(metric);
+    }
 }

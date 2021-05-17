@@ -2,6 +2,8 @@ package com.example.catapi.webservice;
 
 import com.example.catapi.models.Datos;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -12,5 +14,5 @@ public interface WebServiceClient {
 
     @Headers(TOKEN)
     @GET("breeds")
-    Call<Datos> getAllBreeds();
+    Call<List<Datos>> getAllBreeds();
 }

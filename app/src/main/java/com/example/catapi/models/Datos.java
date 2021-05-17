@@ -2,10 +2,13 @@
 package com.example.catapi.models;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Datos {
+public class Datos implements Parcelable {
 
     @SerializedName("weight")
     @Expose
@@ -211,6 +214,59 @@ public class Datos {
         this.referenceImageId = referenceImageId;
         this.image = image;
     }
+
+    protected Datos(Parcel in) {
+        weight = in.readParcelable(Weight.class.getClassLoader());
+        id = in.readString();
+        name = in.readString();
+        cfaUrl = in.readString();
+        vetstreetUrl = in.readString();
+        vcahospitalsUrl = in.readString();
+        temperament = in.readString();
+        origin = in.readString();
+        countryCodes = in.readString();
+        countryCode = in.readString();
+        description = in.readString();
+        lifeSpan = in.readString();
+        indoor = in.readInt();
+        lap = in.readInt();
+        altNames = in.readString();
+        adaptability = in.readInt();
+        affectionLevel = in.readInt();
+        childFriendly = in.readInt();
+        dogFriendly = in.readInt();
+        energyLevel = in.readInt();
+        grooming = in.readInt();
+        healthIssues = in.readInt();
+        intelligence = in.readInt();
+        sheddingLevel = in.readInt();
+        socialNeeds = in.readInt();
+        strangerFriendly = in.readInt();
+        vocalisation = in.readInt();
+        experimental = in.readInt();
+        hairless = in.readInt();
+        natural = in.readInt();
+        rare = in.readInt();
+        rex = in.readInt();
+        suppressedTail = in.readInt();
+        shortLegs = in.readInt();
+        wikipediaUrl = in.readString();
+        hypoallergenic = in.readInt();
+        referenceImageId = in.readString();
+        image = in.readParcelable(Image.class.getClassLoader());
+    }
+
+    public static final Creator<Datos> CREATOR = new Creator<Datos>() {
+        @Override
+        public Datos createFromParcel(Parcel in) {
+            return new Datos(in);
+        }
+
+        @Override
+        public Datos[] newArray(int size) {
+            return new Datos[size];
+        }
+    };
 
     public Weight getWeight() {
         return weight;
@@ -516,4 +572,50 @@ public class Datos {
         this.image = image;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(weight, flags);
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeString(cfaUrl);
+        dest.writeString(vetstreetUrl);
+        dest.writeString(vcahospitalsUrl);
+        dest.writeString(temperament);
+        dest.writeString(origin);
+        dest.writeString(countryCodes);
+        dest.writeString(countryCode);
+        dest.writeString(description);
+        dest.writeString(lifeSpan);
+        dest.writeInt(indoor);
+        dest.writeInt(lap);
+        dest.writeString(altNames);
+        dest.writeInt(adaptability);
+        dest.writeInt(affectionLevel);
+        dest.writeInt(childFriendly);
+        dest.writeInt(dogFriendly);
+        dest.writeInt(energyLevel);
+        dest.writeInt(grooming);
+        dest.writeInt(healthIssues);
+        dest.writeInt(intelligence);
+        dest.writeInt(sheddingLevel);
+        dest.writeInt(socialNeeds);
+        dest.writeInt(strangerFriendly);
+        dest.writeInt(vocalisation);
+        dest.writeInt(experimental);
+        dest.writeInt(hairless);
+        dest.writeInt(natural);
+        dest.writeInt(rare);
+        dest.writeInt(rex);
+        dest.writeInt(suppressedTail);
+        dest.writeInt(shortLegs);
+        dest.writeString(wikipediaUrl);
+        dest.writeInt(hypoallergenic);
+        dest.writeString(referenceImageId);
+        dest.writeParcelable(image, flags);
+    }
 }

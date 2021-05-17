@@ -1,6 +1,8 @@
 package com.example.catapi;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,16 +38,27 @@ public class RazasAdapter extends RecyclerView.Adapter<RazasAdapter.RazasHolder>
     public void onBindViewHolder(@NonNull RazasAdapter.RazasHolder holder, int position) {
         Datos raza = razas.get(position);
         holder.tvRaza.setText(raza.getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CatDetail.class);
+                intent.putExtra("data", (Parcelable) razas);
+                context.startActivity(intent);
+
+            }
+        });
     }
 
 
     @Override
     public int getItemCount() {
-        return 0;
+        return razas.size();
     }
 
     public void setLista(List<Datos> listadoDeRazas) {
         this.razas = listadoDeRazas;
+        notifyDataSetChanged();
     }
 
     public class RazasHolder extends RecyclerView.ViewHolder {

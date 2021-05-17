@@ -6,6 +6,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.catapi.models.Datos;
 import com.example.catapi.webservice.WebServiceClient;
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
     private WebServiceClient webServiceClient;
     private List<Datos> todasRazas;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupView() {
 
+
         recyclerView =  findViewById(R.id.listaRazas);
         adapter = new RazasAdapter(this);
         layoutManager = new LinearLayoutManager(this);
@@ -48,6 +54,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+        swipeRefreshLayout = findViewById(R.id.refresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                lanzarPeticion();
+            }
+        });
     }
 
 
@@ -65,29 +78,34 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void lanzarPeticion(){
-        Call<Datos>razasCall = webServiceClient.getAllBreeds();
-        razasCall.enqueue(new Callback<Datos>() {
+        Call<List<Datos>> todosLosGatos = webServiceClient.getAllBreeds();
+
+        todosLosGatos.enqueue(new Callback<List<Datos>>() {
+
             @Override
-            public void onResponse(Call<Datos> call, Response<Datos> response) {
+            public void onResponse(Call<List<Datos>> call, Response<List<Datos>> response) {
+                if (swipeRefreshLayout.isRefreshing()){
+                    swipeRefreshLayout.setRefreshing(false);
+                }
                 if (response.isSuccessful()) {
                     int code = response.code();
 
-                    Datos misDatos = response.body();
-                    todasRazas = String.valueOf(misDatos.getName());
-                    adapter.setLista(todasRazas);
+                    adapter.setLista(response.body());
+                    //adapter.setLista(todasRazas);
                 } else {
                     showErrorMessage();
                 }
             }
 
-            private void showErrorMessage() {
-                Toast.makeText(MainActivity.this, "Ha ocurrido un error desconocido. Por favor, vuelve a intentarlo más tarde.", Toast.LENGTH_SHORT).show();
-            }
-
             @Override
-            public void onFailure(Call<Datos> call, Throwable t) {
-
+            public void onFailure(Call<List<Datos>> call, Throwable t) {
+                showErrorMessage();
             }
         });
     }
+    private void showErrorMessage() {
+        Toast.makeText(MainActivity.this, "Ha ocurrido un error desconocido. Por favor, vuelve a intentarlo más tarde.", Toast.LENGTH_SHORT).show();
+    }
+
+
 }
