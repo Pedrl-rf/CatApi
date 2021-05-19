@@ -1,84 +1,53 @@
 
 package com.example.catapi.models;
 
-
-import android.os.Parcel;
 import android.os.Parcelable;
-
+import android.os.Parcelable.Creator;
+import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-public class Image implements Parcelable {
+public class Image implements Parcelable
+{
 
-    @SerializedName("id")
-    @Expose
-    private String id;
-    @SerializedName("width")
-    @Expose
-    private int width;
     @SerializedName("height")
     @Expose
     private int height;
+    @SerializedName("id")
+    @Expose
+    private String id;
     @SerializedName("url")
     @Expose
     private String url;
+    @SerializedName("width")
+    @Expose
+    private int width;
+    public final static Creator<Image> CREATOR = new Creator<Image>() {
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public Image() {
-    }
 
-    /**
-     * 
-     * @param width
-     * @param id
-     * @param url
-     * @param height
-     */
-    public Image(String id, int width, int height, String url) {
-        super();
-        this.id = id;
-        this.width = width;
-        this.height = height;
-        this.url = url;
-    }
-
-    protected Image(Parcel in) {
-        id = in.readString();
-        width = in.readInt();
-        height = in.readInt();
-        url = in.readString();
-    }
-
-    public static final Creator<Image> CREATOR = new Creator<Image>() {
-        @Override
-        public Image createFromParcel(Parcel in) {
+        @SuppressWarnings({
+            "unchecked"
+        })
+        public Image createFromParcel(android.os.Parcel in) {
             return new Image(in);
         }
 
-        @Override
         public Image[] newArray(int size) {
-            return new Image[size];
+            return (new Image[size]);
         }
-    };
 
-    public String getId() {
-        return id;
+    }
+    ;
+
+    protected Image(android.os.Parcel in) {
+        this.height = ((int) in.readValue((int.class.getClassLoader())));
+        this.id = ((String) in.readValue((String.class.getClassLoader())));
+        this.url = ((String) in.readValue((String.class.getClassLoader())));
+        this.width = ((int) in.readValue((int.class.getClassLoader())));
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
+    public Image() {
     }
 
     public int getHeight() {
@@ -89,6 +58,14 @@ public class Image implements Parcelable {
         this.height = height;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getUrl() {
         return url;
     }
@@ -97,16 +74,23 @@ public class Image implements Parcelable {
         this.url = url;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getWidth() {
+        return width;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeInt(width);
-        dest.writeInt(height);
-        dest.writeString(url);
+    public void setWidth(int width) {
+        this.width = width;
     }
+
+    public void writeToParcel(android.os.Parcel dest, int flags) {
+        dest.writeValue(height);
+        dest.writeValue(id);
+        dest.writeValue(url);
+        dest.writeValue(width);
+    }
+
+    public int describeContents() {
+        return  0;
+    }
+
 }

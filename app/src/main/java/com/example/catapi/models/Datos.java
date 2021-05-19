@@ -2,390 +2,188 @@
 package com.example.catapi.models;
 
 
-import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Datos implements Parcelable {
 
-    @SerializedName("weight")
-    @Expose
-    private Weight weight;
-    @SerializedName("id")
-    @Expose
-    private String id;
-    @SerializedName("name")
-    @Expose
-    private String name;
-    @SerializedName("cfa_url")
-    @Expose
-    private String cfaUrl;
-    @SerializedName("vetstreet_url")
-    @Expose
-    private String vetstreetUrl;
-    @SerializedName("vcahospitals_url")
-    @Expose
-    private String vcahospitalsUrl;
-    @SerializedName("temperament")
-    @Expose
-    private String temperament;
-    @SerializedName("origin")
-    @Expose
-    private String origin;
-    @SerializedName("country_codes")
-    @Expose
-    private String countryCodes;
-    @SerializedName("country_code")
-    @Expose
-    private String countryCode;
-    @SerializedName("description")
-    @Expose
-    private String description;
-    @SerializedName("life_span")
-    @Expose
-    private String lifeSpan;
-    @SerializedName("indoor")
-    @Expose
-    private int indoor;
-    @SerializedName("lap")
-    @Expose
-    private int lap;
-    @SerializedName("alt_names")
-    @Expose
-    private String altNames;
+public class Datos implements Parcelable
+{
+
     @SerializedName("adaptability")
     @Expose
     private int adaptability;
     @SerializedName("affection_level")
     @Expose
     private int affectionLevel;
+    @SerializedName("alt_names")
+    @Expose
+    private String altNames;
+    @SerializedName("cfa_url")
+    @Expose
+    private String cfaUrl;
     @SerializedName("child_friendly")
     @Expose
     private int childFriendly;
+    @SerializedName("country_code")
+    @Expose
+    private String countryCode;
+    @SerializedName("country_codes")
+    @Expose
+    private String countryCodes;
+    @SerializedName("description")
+    @Expose
+    private String description;
     @SerializedName("dog_friendly")
     @Expose
     private int dogFriendly;
     @SerializedName("energy_level")
     @Expose
     private int energyLevel;
+    @SerializedName("experimental")
+    @Expose
+    private int experimental;
     @SerializedName("grooming")
     @Expose
     private int grooming;
+    @SerializedName("hairless")
+    @Expose
+    private int hairless;
     @SerializedName("health_issues")
     @Expose
     private int healthIssues;
+    @SerializedName("hypoallergenic")
+    @Expose
+    private int hypoallergenic;
+    @SerializedName("id")
+    @Expose
+    private String id;
+    @SerializedName("image")
+    @Expose
+    private Image image;
+    @SerializedName("indoor")
+    @Expose
+    private int indoor;
     @SerializedName("intelligence")
     @Expose
     private int intelligence;
+    @SerializedName("lap")
+    @Expose
+    private int lap;
+    @SerializedName("life_span")
+    @Expose
+    private String lifeSpan;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("natural")
+    @Expose
+    private int natural;
+    @SerializedName("origin")
+    @Expose
+    private String origin;
+    @SerializedName("rare")
+    @Expose
+    private int rare;
+    @SerializedName("reference_image_id")
+    @Expose
+    private String referenceImageId;
+    @SerializedName("rex")
+    @Expose
+    private int rex;
     @SerializedName("shedding_level")
     @Expose
     private int sheddingLevel;
+    @SerializedName("short_legs")
+    @Expose
+    private int shortLegs;
     @SerializedName("social_needs")
     @Expose
     private int socialNeeds;
     @SerializedName("stranger_friendly")
     @Expose
     private int strangerFriendly;
-    @SerializedName("vocalisation")
-    @Expose
-    private int vocalisation;
-    @SerializedName("experimental")
-    @Expose
-    private int experimental;
-    @SerializedName("hairless")
-    @Expose
-    private int hairless;
-    @SerializedName("natural")
-    @Expose
-    private int natural;
-    @SerializedName("rare")
-    @Expose
-    private int rare;
-    @SerializedName("rex")
-    @Expose
-    private int rex;
     @SerializedName("suppressed_tail")
     @Expose
     private int suppressedTail;
-    @SerializedName("short_legs")
+    @SerializedName("temperament")
     @Expose
-    private int shortLegs;
+    private String temperament;
+    @SerializedName("vcahospitals_url")
+    @Expose
+    private String vcahospitalsUrl;
+    @SerializedName("vetstreet_url")
+    @Expose
+    private String vetstreetUrl;
+    @SerializedName("vocalisation")
+    @Expose
+    private int vocalisation;
+    @SerializedName("weight")
+    @Expose
+    private Weight weight;
     @SerializedName("wikipedia_url")
     @Expose
     private String wikipediaUrl;
-    @SerializedName("hypoallergenic")
-    @Expose
-    private int hypoallergenic;
-    @SerializedName("reference_image_id")
-    @Expose
-    private String referenceImageId;
-    @SerializedName("image")
-    @Expose
-    private Image image;
+    public final static Creator<Datos> CREATOR = new Creator<Datos>() {
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public Datos() {
-    }
 
-    /**
-     * 
-     * @param altNames
-     * @param childFriendly
-     * @param origin
-     * @param description
-     * @param experimental
-     * @param cfaUrl
-     * @param suppressedTail
-     * @param lifeSpan
-     * @param energyLevel
-     * @param countryCode
-     * @param rare
-     * @param socialNeeds
-     * @param lap
-     * @param id
-     * @param shortLegs
-     * @param affectionLevel
-     * @param image
-     * @param natural
-     * @param rex
-     * @param sheddingLevel
-     * @param vcahospitalsUrl
-     * @param hairless
-     * @param vetstreetUrl
-     * @param weight
-     * @param adaptability
-     * @param vocalisation
-     * @param intelligence
-     * @param wikipediaUrl
-     * @param strangerFriendly
-     * @param countryCodes
-     * @param healthIssues
-     * @param temperament
-     * @param name
-     * @param grooming
-     * @param hypoallergenic
-     * @param indoor
-     * @param dogFriendly
-     * @param referenceImageId
-     */
-    public Datos(Weight weight, String id, String name, String cfaUrl, String vetstreetUrl, String vcahospitalsUrl, String temperament, String origin, String countryCodes, String countryCode, String description, String lifeSpan, int indoor, int lap, String altNames, int adaptability, int affectionLevel, int childFriendly, int dogFriendly, int energyLevel, int grooming, int healthIssues, int intelligence, int sheddingLevel, int socialNeeds, int strangerFriendly, int vocalisation, int experimental, int hairless, int natural, int rare, int rex, int suppressedTail, int shortLegs, String wikipediaUrl, int hypoallergenic, String referenceImageId, Image image) {
-        super();
-        this.weight = weight;
-        this.id = id;
-        this.name = name;
-        this.cfaUrl = cfaUrl;
-        this.vetstreetUrl = vetstreetUrl;
-        this.vcahospitalsUrl = vcahospitalsUrl;
-        this.temperament = temperament;
-        this.origin = origin;
-        this.countryCodes = countryCodes;
-        this.countryCode = countryCode;
-        this.description = description;
-        this.lifeSpan = lifeSpan;
-        this.indoor = indoor;
-        this.lap = lap;
-        this.altNames = altNames;
-        this.adaptability = adaptability;
-        this.affectionLevel = affectionLevel;
-        this.childFriendly = childFriendly;
-        this.dogFriendly = dogFriendly;
-        this.energyLevel = energyLevel;
-        this.grooming = grooming;
-        this.healthIssues = healthIssues;
-        this.intelligence = intelligence;
-        this.sheddingLevel = sheddingLevel;
-        this.socialNeeds = socialNeeds;
-        this.strangerFriendly = strangerFriendly;
-        this.vocalisation = vocalisation;
-        this.experimental = experimental;
-        this.hairless = hairless;
-        this.natural = natural;
-        this.rare = rare;
-        this.rex = rex;
-        this.suppressedTail = suppressedTail;
-        this.shortLegs = shortLegs;
-        this.wikipediaUrl = wikipediaUrl;
-        this.hypoallergenic = hypoallergenic;
-        this.referenceImageId = referenceImageId;
-        this.image = image;
-    }
-
-    protected Datos(Parcel in) {
-        weight = in.readParcelable(Weight.class.getClassLoader());
-        id = in.readString();
-        name = in.readString();
-        cfaUrl = in.readString();
-        vetstreetUrl = in.readString();
-        vcahospitalsUrl = in.readString();
-        temperament = in.readString();
-        origin = in.readString();
-        countryCodes = in.readString();
-        countryCode = in.readString();
-        description = in.readString();
-        lifeSpan = in.readString();
-        indoor = in.readInt();
-        lap = in.readInt();
-        altNames = in.readString();
-        adaptability = in.readInt();
-        affectionLevel = in.readInt();
-        childFriendly = in.readInt();
-        dogFriendly = in.readInt();
-        energyLevel = in.readInt();
-        grooming = in.readInt();
-        healthIssues = in.readInt();
-        intelligence = in.readInt();
-        sheddingLevel = in.readInt();
-        socialNeeds = in.readInt();
-        strangerFriendly = in.readInt();
-        vocalisation = in.readInt();
-        experimental = in.readInt();
-        hairless = in.readInt();
-        natural = in.readInt();
-        rare = in.readInt();
-        rex = in.readInt();
-        suppressedTail = in.readInt();
-        shortLegs = in.readInt();
-        wikipediaUrl = in.readString();
-        hypoallergenic = in.readInt();
-        referenceImageId = in.readString();
-        image = in.readParcelable(Image.class.getClassLoader());
-    }
-
-    public static final Creator<Datos> CREATOR = new Creator<Datos>() {
-        @Override
-        public Datos createFromParcel(Parcel in) {
+        @SuppressWarnings({
+            "unchecked"
+        })
+        public Datos createFromParcel(android.os.Parcel in) {
             return new Datos(in);
         }
 
-        @Override
         public Datos[] newArray(int size) {
-            return new Datos[size];
+            return (new Datos[size]);
         }
-    };
 
-    public Weight getWeight() {
-        return weight;
+    }
+    ;
+
+    protected Datos(android.os.Parcel in) {
+        this.adaptability = ((int) in.readValue((int.class.getClassLoader())));
+        this.affectionLevel = ((int) in.readValue((int.class.getClassLoader())));
+        this.altNames = ((String) in.readValue((String.class.getClassLoader())));
+        this.cfaUrl = ((String) in.readValue((String.class.getClassLoader())));
+        this.childFriendly = ((int) in.readValue((int.class.getClassLoader())));
+        this.countryCode = ((String) in.readValue((String.class.getClassLoader())));
+        this.countryCodes = ((String) in.readValue((String.class.getClassLoader())));
+        this.description = ((String) in.readValue((String.class.getClassLoader())));
+        this.dogFriendly = ((int) in.readValue((int.class.getClassLoader())));
+        this.energyLevel = ((int) in.readValue((int.class.getClassLoader())));
+        this.experimental = ((int) in.readValue((int.class.getClassLoader())));
+        this.grooming = ((int) in.readValue((int.class.getClassLoader())));
+        this.hairless = ((int) in.readValue((int.class.getClassLoader())));
+        this.healthIssues = ((int) in.readValue((int.class.getClassLoader())));
+        this.hypoallergenic = ((int) in.readValue((int.class.getClassLoader())));
+        this.id = ((String) in.readValue((String.class.getClassLoader())));
+        this.image = ((Image) in.readValue((Image.class.getClassLoader())));
+        this.indoor = ((int) in.readValue((int.class.getClassLoader())));
+        this.intelligence = ((int) in.readValue((int.class.getClassLoader())));
+        this.lap = ((int) in.readValue((int.class.getClassLoader())));
+        this.lifeSpan = ((String) in.readValue((String.class.getClassLoader())));
+        this.name = ((String) in.readValue((String.class.getClassLoader())));
+        this.natural = ((int) in.readValue((int.class.getClassLoader())));
+        this.origin = ((String) in.readValue((String.class.getClassLoader())));
+        this.rare = ((int) in.readValue((int.class.getClassLoader())));
+        this.referenceImageId = ((String) in.readValue((String.class.getClassLoader())));
+        this.rex = ((int) in.readValue((int.class.getClassLoader())));
+        this.sheddingLevel = ((int) in.readValue((int.class.getClassLoader())));
+        this.shortLegs = ((int) in.readValue((int.class.getClassLoader())));
+        this.socialNeeds = ((int) in.readValue((int.class.getClassLoader())));
+        this.strangerFriendly = ((int) in.readValue((int.class.getClassLoader())));
+        this.suppressedTail = ((int) in.readValue((int.class.getClassLoader())));
+        this.temperament = ((String) in.readValue((String.class.getClassLoader())));
+        this.vcahospitalsUrl = ((String) in.readValue((String.class.getClassLoader())));
+        this.vetstreetUrl = ((String) in.readValue((String.class.getClassLoader())));
+        this.vocalisation = ((int) in.readValue((int.class.getClassLoader())));
+        this.weight = ((Weight) in.readValue((Weight.class.getClassLoader())));
+        this.wikipediaUrl = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-    public void setWeight(Weight weight) {
-        this.weight = weight;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCfaUrl() {
-        return cfaUrl;
-    }
-
-    public void setCfaUrl(String cfaUrl) {
-        this.cfaUrl = cfaUrl;
-    }
-
-    public String getVetstreetUrl() {
-        return vetstreetUrl;
-    }
-
-    public void setVetstreetUrl(String vetstreetUrl) {
-        this.vetstreetUrl = vetstreetUrl;
-    }
-
-    public String getVcahospitalsUrl() {
-        return vcahospitalsUrl;
-    }
-
-    public void setVcahospitalsUrl(String vcahospitalsUrl) {
-        this.vcahospitalsUrl = vcahospitalsUrl;
-    }
-
-    public String getTemperament() {
-        return temperament;
-    }
-
-    public void setTemperament(String temperament) {
-        this.temperament = temperament;
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
-    public String getCountryCodes() {
-        return countryCodes;
-    }
-
-    public void setCountryCodes(String countryCodes) {
-        this.countryCodes = countryCodes;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getLifeSpan() {
-        return lifeSpan;
-    }
-
-    public void setLifeSpan(String lifeSpan) {
-        this.lifeSpan = lifeSpan;
-    }
-
-    public int getIndoor() {
-        return indoor;
-    }
-
-    public void setIndoor(int indoor) {
-        this.indoor = indoor;
-    }
-
-    public int getLap() {
-        return lap;
-    }
-
-    public void setLap(int lap) {
-        this.lap = lap;
-    }
-
-    public String getAltNames() {
-        return altNames;
-    }
-
-    public void setAltNames(String altNames) {
-        this.altNames = altNames;
+    public Datos() {
     }
 
     public int getAdaptability() {
@@ -404,12 +202,52 @@ public class Datos implements Parcelable {
         this.affectionLevel = affectionLevel;
     }
 
+    public String getAltNames() {
+        return altNames;
+    }
+
+    public void setAltNames(String altNames) {
+        this.altNames = altNames;
+    }
+
+    public String getCfaUrl() {
+        return cfaUrl;
+    }
+
+    public void setCfaUrl(String cfaUrl) {
+        this.cfaUrl = cfaUrl;
+    }
+
     public int getChildFriendly() {
         return childFriendly;
     }
 
     public void setChildFriendly(int childFriendly) {
         this.childFriendly = childFriendly;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public String getCountryCodes() {
+        return countryCodes;
+    }
+
+    public void setCountryCodes(String countryCodes) {
+        this.countryCodes = countryCodes;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getDogFriendly() {
@@ -428,12 +266,28 @@ public class Datos implements Parcelable {
         this.energyLevel = energyLevel;
     }
 
+    public int getExperimental() {
+        return experimental;
+    }
+
+    public void setExperimental(int experimental) {
+        this.experimental = experimental;
+    }
+
     public int getGrooming() {
         return grooming;
     }
 
     public void setGrooming(int grooming) {
         this.grooming = grooming;
+    }
+
+    public int getHairless() {
+        return hairless;
+    }
+
+    public void setHairless(int hairless) {
+        this.hairless = hairless;
     }
 
     public int getHealthIssues() {
@@ -444,6 +298,38 @@ public class Datos implements Parcelable {
         this.healthIssues = healthIssues;
     }
 
+    public int getHypoallergenic() {
+        return hypoallergenic;
+    }
+
+    public void setHypoallergenic(int hypoallergenic) {
+        this.hypoallergenic = hypoallergenic;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    public int getIndoor() {
+        return indoor;
+    }
+
+    public void setIndoor(int indoor) {
+        this.indoor = indoor;
+    }
+
     public int getIntelligence() {
         return intelligence;
     }
@@ -452,12 +338,84 @@ public class Datos implements Parcelable {
         this.intelligence = intelligence;
     }
 
+    public int getLap() {
+        return lap;
+    }
+
+    public void setLap(int lap) {
+        this.lap = lap;
+    }
+
+    public String getLifeSpan() {
+        return lifeSpan;
+    }
+
+    public void setLifeSpan(String lifeSpan) {
+        this.lifeSpan = lifeSpan;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNatural() {
+        return natural;
+    }
+
+    public void setNatural(int natural) {
+        this.natural = natural;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public int getRare() {
+        return rare;
+    }
+
+    public void setRare(int rare) {
+        this.rare = rare;
+    }
+
+    public String getReferenceImageId() {
+        return referenceImageId;
+    }
+
+    public void setReferenceImageId(String referenceImageId) {
+        this.referenceImageId = referenceImageId;
+    }
+
+    public int getRex() {
+        return rex;
+    }
+
+    public void setRex(int rex) {
+        this.rex = rex;
+    }
+
     public int getSheddingLevel() {
         return sheddingLevel;
     }
 
     public void setSheddingLevel(int sheddingLevel) {
         this.sheddingLevel = sheddingLevel;
+    }
+
+    public int getShortLegs() {
+        return shortLegs;
+    }
+
+    public void setShortLegs(int shortLegs) {
+        this.shortLegs = shortLegs;
     }
 
     public int getSocialNeeds() {
@@ -476,54 +434,6 @@ public class Datos implements Parcelable {
         this.strangerFriendly = strangerFriendly;
     }
 
-    public int getVocalisation() {
-        return vocalisation;
-    }
-
-    public void setVocalisation(int vocalisation) {
-        this.vocalisation = vocalisation;
-    }
-
-    public int getExperimental() {
-        return experimental;
-    }
-
-    public void setExperimental(int experimental) {
-        this.experimental = experimental;
-    }
-
-    public int getHairless() {
-        return hairless;
-    }
-
-    public void setHairless(int hairless) {
-        this.hairless = hairless;
-    }
-
-    public int getNatural() {
-        return natural;
-    }
-
-    public void setNatural(int natural) {
-        this.natural = natural;
-    }
-
-    public int getRare() {
-        return rare;
-    }
-
-    public void setRare(int rare) {
-        this.rare = rare;
-    }
-
-    public int getRex() {
-        return rex;
-    }
-
-    public void setRex(int rex) {
-        this.rex = rex;
-    }
-
     public int getSuppressedTail() {
         return suppressedTail;
     }
@@ -532,12 +442,44 @@ public class Datos implements Parcelable {
         this.suppressedTail = suppressedTail;
     }
 
-    public int getShortLegs() {
-        return shortLegs;
+    public String getTemperament() {
+        return temperament;
     }
 
-    public void setShortLegs(int shortLegs) {
-        this.shortLegs = shortLegs;
+    public void setTemperament(String temperament) {
+        this.temperament = temperament;
+    }
+
+    public String getVcahospitalsUrl() {
+        return vcahospitalsUrl;
+    }
+
+    public void setVcahospitalsUrl(String vcahospitalsUrl) {
+        this.vcahospitalsUrl = vcahospitalsUrl;
+    }
+
+    public String getVetstreetUrl() {
+        return vetstreetUrl;
+    }
+
+    public void setVetstreetUrl(String vetstreetUrl) {
+        this.vetstreetUrl = vetstreetUrl;
+    }
+
+    public int getVocalisation() {
+        return vocalisation;
+    }
+
+    public void setVocalisation(int vocalisation) {
+        this.vocalisation = vocalisation;
+    }
+
+    public Weight getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Weight weight) {
+        this.weight = weight;
     }
 
     public String getWikipediaUrl() {
@@ -548,74 +490,49 @@ public class Datos implements Parcelable {
         this.wikipediaUrl = wikipediaUrl;
     }
 
-    public int getHypoallergenic() {
-        return hypoallergenic;
+    public void writeToParcel(android.os.Parcel dest, int flags) {
+        dest.writeValue(adaptability);
+        dest.writeValue(affectionLevel);
+        dest.writeValue(altNames);
+        dest.writeValue(cfaUrl);
+        dest.writeValue(childFriendly);
+        dest.writeValue(countryCode);
+        dest.writeValue(countryCodes);
+        dest.writeValue(description);
+        dest.writeValue(dogFriendly);
+        dest.writeValue(energyLevel);
+        dest.writeValue(experimental);
+        dest.writeValue(grooming);
+        dest.writeValue(hairless);
+        dest.writeValue(healthIssues);
+        dest.writeValue(hypoallergenic);
+        dest.writeValue(id);
+        dest.writeValue(image);
+        dest.writeValue(indoor);
+        dest.writeValue(intelligence);
+        dest.writeValue(lap);
+        dest.writeValue(lifeSpan);
+        dest.writeValue(name);
+        dest.writeValue(natural);
+        dest.writeValue(origin);
+        dest.writeValue(rare);
+        dest.writeValue(referenceImageId);
+        dest.writeValue(rex);
+        dest.writeValue(sheddingLevel);
+        dest.writeValue(shortLegs);
+        dest.writeValue(socialNeeds);
+        dest.writeValue(strangerFriendly);
+        dest.writeValue(suppressedTail);
+        dest.writeValue(temperament);
+        dest.writeValue(vcahospitalsUrl);
+        dest.writeValue(vetstreetUrl);
+        dest.writeValue(vocalisation);
+        dest.writeValue(weight);
+        dest.writeValue(wikipediaUrl);
     }
 
-    public void setHypoallergenic(int hypoallergenic) {
-        this.hypoallergenic = hypoallergenic;
-    }
-
-    public String getReferenceImageId() {
-        return referenceImageId;
-    }
-
-    public void setReferenceImageId(String referenceImageId) {
-        this.referenceImageId = referenceImageId;
-    }
-
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
-    @Override
     public int describeContents() {
-        return 0;
+        return  0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(weight, flags);
-        dest.writeString(id);
-        dest.writeString(name);
-        dest.writeString(cfaUrl);
-        dest.writeString(vetstreetUrl);
-        dest.writeString(vcahospitalsUrl);
-        dest.writeString(temperament);
-        dest.writeString(origin);
-        dest.writeString(countryCodes);
-        dest.writeString(countryCode);
-        dest.writeString(description);
-        dest.writeString(lifeSpan);
-        dest.writeInt(indoor);
-        dest.writeInt(lap);
-        dest.writeString(altNames);
-        dest.writeInt(adaptability);
-        dest.writeInt(affectionLevel);
-        dest.writeInt(childFriendly);
-        dest.writeInt(dogFriendly);
-        dest.writeInt(energyLevel);
-        dest.writeInt(grooming);
-        dest.writeInt(healthIssues);
-        dest.writeInt(intelligence);
-        dest.writeInt(sheddingLevel);
-        dest.writeInt(socialNeeds);
-        dest.writeInt(strangerFriendly);
-        dest.writeInt(vocalisation);
-        dest.writeInt(experimental);
-        dest.writeInt(hairless);
-        dest.writeInt(natural);
-        dest.writeInt(rare);
-        dest.writeInt(rex);
-        dest.writeInt(suppressedTail);
-        dest.writeInt(shortLegs);
-        dest.writeString(wikipediaUrl);
-        dest.writeInt(hypoallergenic);
-        dest.writeString(referenceImageId);
-        dest.writeParcelable(image, flags);
-    }
 }

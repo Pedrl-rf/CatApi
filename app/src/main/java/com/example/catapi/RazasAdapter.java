@@ -43,7 +43,7 @@ public class RazasAdapter extends RecyclerView.Adapter<RazasAdapter.RazasHolder>
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, CatDetail.class);
-                intent.putExtra("data", (Parcelable) razas);
+                intent.putExtra("data", raza);
                 context.startActivity(intent);
 
             }

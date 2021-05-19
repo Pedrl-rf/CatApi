@@ -11,7 +11,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.catapi.models.Datos;
 import com.example.catapi.webservice.WebServiceClient;
 
-import java.util.Collections;
 import java.util.List;
 
 import okhttp3.OkHttpClient;

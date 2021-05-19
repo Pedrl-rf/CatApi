@@ -2,13 +2,15 @@
 package com.example.catapi.models;
 
 
-import android.os.Parcel;
 import android.os.Parcelable;
-
+import android.os.Parcelable.Creator;
+import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Weight implements Parcelable {
+
+public class Weight implements Parcelable
+{
 
     @SerializedName("imperial")
     @Expose
@@ -16,41 +18,30 @@ public class Weight implements Parcelable {
     @SerializedName("metric")
     @Expose
     private String metric;
+    public final static Creator<Weight> CREATOR = new Creator<Weight>() {
 
-    /**
-     * No args constructor for use in serialization
-     * 
-     */
-    public Weight() {
-    }
 
-    /**
-     * 
-     * @param metric
-     * @param imperial
-     */
-    public Weight(String imperial, String metric) {
-        super();
-        this.imperial = imperial;
-        this.metric = metric;
-    }
-
-    protected Weight(Parcel in) {
-        imperial = in.readString();
-        metric = in.readString();
-    }
-
-    public static final Creator<Weight> CREATOR = new Creator<Weight>() {
-        @Override
-        public Weight createFromParcel(Parcel in) {
+        @SuppressWarnings({
+            "unchecked"
+        })
+        public Weight createFromParcel(android.os.Parcel in) {
             return new Weight(in);
         }
 
-        @Override
         public Weight[] newArray(int size) {
-            return new Weight[size];
+            return (new Weight[size]);
         }
-    };
+
+    }
+    ;
+
+    protected Weight(android.os.Parcel in) {
+        this.imperial = ((String) in.readValue((String.class.getClassLoader())));
+        this.metric = ((String) in.readValue((String.class.getClassLoader())));
+    }
+
+    public Weight() {
+    }
 
     public String getImperial() {
         return imperial;
@@ -68,14 +59,13 @@ public class Weight implements Parcelable {
         this.metric = metric;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public void writeToParcel(android.os.Parcel dest, int flags) {
+        dest.writeValue(imperial);
+        dest.writeValue(metric);
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(imperial);
-        dest.writeString(metric);
+    public int describeContents() {
+        return  0;
     }
+
 }
