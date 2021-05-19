@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CatDetail"></activity>
+        <activity android:name=".ListaVotos"></activity>
     </application>
 
 </manifest>

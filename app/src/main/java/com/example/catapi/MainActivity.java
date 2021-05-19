@@ -1,6 +1,8 @@
 package com.example.catapi;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.catapi.models.Datos;
 import com.example.catapi.webservice.WebServiceClient;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private WebServiceClient webServiceClient;
     private List<Datos> todasRazas;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private FloatingActionButton fab_listaVotos;
 
 
 
@@ -58,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 lanzarPeticion();
+            }
+        });
+
+        fab_listaVotos = findViewById(R.id.fab_listaVotos);
+        fab_listaVotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListaVotos.class);
+                startActivity(intent);
             }
         });
     }

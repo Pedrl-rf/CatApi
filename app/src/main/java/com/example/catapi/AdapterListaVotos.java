@@ -4,12 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.catapi.models.Vote;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterListaVotos extends RecyclerView.Adapter<AdapterListaVotos.VotosHolder> {
@@ -20,6 +22,7 @@ public class AdapterListaVotos extends RecyclerView.Adapter<AdapterListaVotos.Vo
 
     public AdapterListaVotos(Context context) {
         this.context = context;
+        this.listaVotos = new ArrayList<>();
     }
 
 
@@ -32,17 +35,26 @@ public class AdapterListaVotos extends RecyclerView.Adapter<AdapterListaVotos.Vo
 
     @Override
     public void onBindViewHolder(@NonNull AdapterListaVotos.VotosHolder holder, int position) {
+        Vote vote = listaVotos.get(position);
+        holder.tvVoto.setText(vote.getId());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listaVotos.size();
+    }
+
+    public void setLista(List<Vote> body) {
+        this.listaVotos = body;
+        notifyDataSetChanged();
     }
 
     public class VotosHolder extends RecyclerView.ViewHolder {
+        private TextView tvVoto;
         public VotosHolder(@NonNull View itemView) {
             super(itemView);
+            tvVoto = itemView.findViewById(R.id.nombreRaza);
         }
     }
 }
