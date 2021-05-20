@@ -26,6 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ListaVotos extends AppCompatActivity {
     private RecyclerView recyclerView;
     private  AdapterListaVotos adapterListaVotos;
+    private LinearLayoutManager layoutManager;
     //private LinearLayoutManager linearLayoutManager;
     private WebServiceClient webServiceClient;
     private List<Vote>listaVotos;
@@ -40,11 +41,11 @@ public class ListaVotos extends AppCompatActivity {
     }
 
     private void setupView(){
-        recyclerView =  findViewById(R.id.listaRazas);
+        recyclerView =  findViewById(R.id.rv_listaVotos);
         adapterListaVotos = new AdapterListaVotos(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListaVotos.this);
+        layoutManager = new LinearLayoutManager(this);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterListaVotos);
 
     }

@@ -36,7 +36,7 @@ public class AdapterListaVotos extends RecyclerView.Adapter<AdapterListaVotos.Vo
     @Override
     public void onBindViewHolder(@NonNull AdapterListaVotos.VotosHolder holder, int position) {
         Vote vote = listaVotos.get(position);
-        holder.tvVoto.setText(vote.getId());
+        holder.tvVoto.setText(String.valueOf(vote.getId()));
 
     }
 
